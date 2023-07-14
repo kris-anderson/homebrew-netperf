@@ -2,7 +2,7 @@ class NetperfEnableDemo < Formula
   desc "Benchmarks performance of many different types of networking"
   homepage "https://github.com/kris-anderson/homebrew-netperf"
   url "https://kris-anderson.s3.us-west-2.amazonaws.com/homebrew-netperf/netperf-2.7.0.1.tar.gz"
-  sha256 "718d70c9205b598e1007ba5587e4954a5c120a958de860773dd570efdee11620"
+  sha256 "53c9a2c68098eb80022272828f1f1439abc6214971673c0995ba7935c8547a54"
   head "https://github.com/HewlettPackard/netperf.git", branch: "master"
 
   depends_on "automake"
