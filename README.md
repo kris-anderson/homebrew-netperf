@@ -30,7 +30,7 @@ This is a slightly modifed formula from the original `netperf` homebrew formula.
 
 > **Note:** This uses HP's Netperf git repo instead of my gzip file which I created on 07/14/2023.
 >
-> If you use this, you'll build from the source and from the master branch.
+> If you use this, you'll build from HP's GitHub repo master branch.
 
 `brew install kris-anderson/netperf/netperf-enable-demo --HEAD`
 
@@ -44,6 +44,6 @@ then
 
 ### Method 4
 
-> **Note:** If you use this, you will not receive updates when this formula is updated in the future
+> **Note:** If you use this, you will not receive updates when this formula is updated in the future.
 
 `brew install https://raw.githubusercontent.com/kris-anderson/homebrew-netperf/master/Formula/netperf-enable-demo.rb`
