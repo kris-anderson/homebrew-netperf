@@ -1,14 +1,14 @@
 class NetperfEnableDemo < Formula
   desc "Benchmarks performance of many different types of networking"
   homepage "https://github.com/kris-anderson/homebrew-netperf"
-  url "https://github.com/HewlettPackard/netperf/archive/netperf-2.7.0.tar.gz"
-  sha256 "4569bafa4cca3d548eb96a486755af40bd9ceb6ab7c6abd81cc6aa4875007c4e"
-  head "https://github.com/HewlettPackard/netperf.git"
+  url "https://kris-anderson.s3.us-west-2.amazonaws.com/homebrew-netperf/netperf-2.7.0.1.tar.gz"
+  sha256 "718d70c9205b598e1007ba5587e4954a5c120a958de860773dd570efdee11620"
+  head "https://github.com/HewlettPackard/netperf.git", branch: "master"
 
   def install
-    inreplace "src/netlib.c" do |s|
-      s.gsub! "inline void demo_interval_display(double actual_interval)", "void demo_interval_display(double actual_interval)"
-      s.gsub! "inline void demo_interval_tick(uint32_t units)", "void demo_interval_tick(uint32_t units)"
+    inreplace "src/netcpu_osx.c" do |s|
+      s.gsub! "/\* #include \<mach/mach_port\.h\> \*/", "#include \<mach/mach_port\.h\>"
+      s.gsub! "mach_port_deallocate(lib_host_port);", "mach_port_deallocate(mach_task_self(), lib_host_port);"
     end
 
     system "./configure", "--disable-dependency-tracking",
@@ -20,5 +20,4 @@ class NetperfEnableDemo < Formula
   test do
     system "#{bin}/netperf -h | cat"
   end
-
 end
