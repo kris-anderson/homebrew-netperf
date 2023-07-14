@@ -5,6 +5,8 @@ class NetperfEnableDemo < Formula
   sha256 "718d70c9205b598e1007ba5587e4954a5c120a958de860773dd570efdee11620"
   head "https://github.com/HewlettPackard/netperf.git", branch: "master"
 
+  depends_on "automake"
+
   def install
     inreplace "src/netcpu_osx.c" do |s|
       s.gsub! "/\* #include \<mach/mach_port\.h\> \*/", "#include \<mach/mach_port\.h\>"
