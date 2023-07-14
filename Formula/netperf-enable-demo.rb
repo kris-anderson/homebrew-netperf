@@ -11,6 +11,7 @@ class NetperfEnableDemo < Formula
       s.gsub! "mach_port_deallocate(lib_host_port);", "mach_port_deallocate(mach_task_self(), lib_host_port);"
     end
 
+    system "automake", "-a"
     system "./configure", "--disable-dependency-tracking",
                           "--enable-demo",
                           "--prefix=#{prefix}"
