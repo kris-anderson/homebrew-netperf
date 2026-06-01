@@ -20,6 +20,8 @@ This is a slightly modifed formula from the original `netperf` homebrew formula.
 
 1. This homebrew formula also runs `./autogen.sh` during the build process, which is required to get this to build on macOS with the latest source code.
 
+1. Pins the build to the `-std=gnu17` C standard. Recent versions of `autoconf` paired with Apple Clang now default to `-std=gnu23`, where an empty function parameter list (`()`) means "takes no arguments". Netperf's older K&R-style declarations (e.g. `extern void HIST_purge();`) then fail to compile with `too many arguments to function call`. Forcing `gnu17` (the last pre-C23 standard) keeps the build working on modern macOS toolchains (e.g. Apple Clang 21 / Command Line Tools 26).
+
 ## How to install this homebrew formula
 
 ### Method 1 - Recommended
